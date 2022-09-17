@@ -1,0 +1,164 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{Математическая индукция} \\ 
+домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}\
+	\
+	Доказать, что:
+	\[
+	1 \cdot (n - 1) + 2 \cdot (n - 2) + \dots + (n - 1) \cdot 1 = \frac{(n - 1)n(n + 1)} {6} 
+	\]
+	
+	\[
+	\sum_{k = 1}^{n - 1} k(n - k) = \frac{(n - 1)n(n + 1)} {6}
+	\]
+	
+	Докажем методом математической индукции:\
+	\begin{enumerate}
+		\item[1)] База: n = 1 $\Rightarrow$ $0 = 0$ - верно
+		\item[2)] Предположим, что верно для n = m: \\
+		\[
+			\sum_{k = 1}^{m - 1} k(m - k) = \frac{(m - 1)m(m + 1)} {6}
+		\]
+		Переход: m $\rightarrow$ m + 1 \\
+		$k\cdot(m + 1 - 1) - k\cdot(m - 1) = k$
+		\[
+			\sum_{k = 1}^{m} k(m + 1 - k) = \sum_{k = 1}^{m - 1} k(m - k) + \sum_{k = 1}^{m - 1} k + (m + 1 - 1) \cdot 1 = 
+		\]
+		\[
+			= \frac{(m - 1)m(m + 1)} {6} + \frac{m(m - 1)}{2} + m = \frac{(m - 1)m(m + 1)} {6} + \frac{3 \cdot m(m + 1)} {3 \cdot 2} = 
+		\]
+		\[
+			= \frac{(m+1)m(m + 2)} {6} \Rightarrow ч.т.д.
+		\]
+	\end{enumerate}
+
+	%2
+	\textbf{№2}\ 
+	\	
+	Известно, что $x + 1/x$ - целое число, докажите, что $x^n + 1/x^n$ - также целое при любом целом положительном n:\\
+	\\
+	Докажем методом математической индукции:\
+	\begin{enumerate}
+		\item[1)] База: n = 1 - верное
+		\item[2)] Предположим, мы доказали, что $x + 1/x$, $x^2 + 1/x^2$, \dots, $x^m + 1/x^m$ -- это целые числа.
+		
+		\[
+			(x^m + \frac{1}{x^m})(x + \frac{1}{x}) = (x^{m - 1} + \frac{1}{x^{m - 1}}) + (x^{m + 1} + \frac{1}{x^{m + 1}})	
+		\]
+	
+		Переход: m $\rightarrow$ m + 1\\
+		\[
+			x^{m + 1} + \frac{1}{x^{m + 1}} = \underbrace{(x^m + \frac{1}{x^m})(x + \frac{1}{x})}_{\text{произведение двух целых - целое}} - \underbrace{(x^{m - 1} + \frac{1}{x^{m - 1}})}_{\text{целое по предположению}} \Rightarrow ч.т.д.	
+		\]
+				 
+	\end{enumerate}
+	
+	%3
+	\textbf{№3}\
+	\
+	Докажите, что верно для всех n > 1:
+	
+	\[
+		\frac{1}{n + 1} + \frac{1}{n + 2} + \dots + \frac{1}{2n} > \frac{13}{24} \; \Longleftrightarrow \; \sum_{k = 1}^{n} \frac{1}{n + k} > \frac{13}{24} 
+	\]
+	
+	Докажем методом математической индукции:\
+	\begin{enumerate}
+		\item[1)] База n = 2: 
+		\[
+			\frac{1}{2 + 1} + \frac{1}{2 + 2} = \frac{7}{12} = \frac{14}{24} > \frac{13}{24} \text{ -- верно}
+		\] 
+		
+		\item[2)] Предположим, что верно для $n = m$:
+		\[
+			\sum_{k = 1}^{m} \frac{1}{m + k} > \frac{13}{24}	
+		\] 
+		
+		Пусть левое выражение это $A(n)$.
+		
+		Переход: $m \rightarrow m + 1$\\
+		\[
+			A(m + 1) = A(m) - \frac{1}{m + 1} + \frac{1}{2m + 2} + \frac{1}{2m + 2} =	
+		\] 
+		
+		\[
+			= A(m) + \frac{1}{2m + 1} - \frac{1}{2m + 2} > A(m) > \frac{13}{24} \Rightarrow ч.т.д.	
+		\]
+	\end{enumerate}
+
+	%4
+	\textbf{№4}\
+	\
+	Докажем методом математической индукции:\\
+	Пусть $A(k)$ - это число удовлетворяющее условию.
+	\begin{enumerate}
+		\item[1)] База: $n = 1$ $\Rightarrow$ A(1) = 4
+		\item[2)] Пусть $A(k) = p \cdot 2^k$, тогда переход: $k \rightarrow k + 1$:\\
+		\\
+		Пусть $A(k + 1) = \overline{aA(k)} = a \cdot 10^k + p \cdot 2^k = 2^k (a \cdot 5^k + p)$\\
+		\\
+		Для того, чтобы $A(k + 1)$ делилось на $2^{k + 1}$, должно выполняться следующее: \\
+		\[
+		(a + p) \bmod 2 = 0
+		\]
+		
+		$\Rightarrow$ Если p - четное, то a = 4, если p - нечетное, то a = 3, т.е. для любого $A(k)$ найдется такое a, чтобы получить $A(k + 1) \Rightarrow ч.т.д.$  
+	\end{enumerate}
+	
+	%5
+	\textbf{№5}\
+	\
+	Рассмотрим двух студентов, студента $S_{перв.}$, который вышел из комнаты первым в момент времени $t_{1}$, и студента $S_{посл.}$, который вошел последним в момент времени $t_{2}$. Логично, если $S_{посл.}$ пришел тогда, когда $S_{перв.}$, еще не вышел ($t_{1} > t_{2}$), то все студенты были в комнате. Предположим это не так, то есть $t_{1} < t_{2}$, тогда любой преподаватель успел поговорить и с $S_{перв.}$, и c $S_{посл.}$, значит между $t_{1}$ и $t_{2}$ в аудитории присутствовали все преподаватели $\Rightarrow ч.т.д.$
+	
+	%6
+	\textbf{№6}\
+	\
+	Главная идея в том, чтобы изменить точку с бесконечным количеством бензина. Давайте будем проезжать по одному километру с стартовой точки и оставлять там 48 км запаса хода (1 км на обратный путь), мы можем делать так до бесконечности, затем сдвигаем точку на один км, так делаем для любого километра, пока не окажемся на нужном. 
+	
+	%7
+	\textbf{№7}\
+	\
+	Докажем методом математической индукции:\
+	\begin{enumerate}
+		\item[1)] База: n = 2 ($a_1 = a_2 = 1$) -- верно
+		\item[2)] Предположим, что верно для последовательности $a_1, a_2, \dots, a_k$. Переход: $k \rightarrow k + 1$\\
+		Доказать, что можно разбить на группы по S $\Longleftrightarrow$ доказать что $a_1 \pm a_2 \pm \dots \pm a_k \pm a_{k + 1} = 0$.\\
+		Если $a_{n} = a_{n + 1}$, то по предположению индукции $a_1, a_2, \dots, a_{k - 1}$ -- четна\\
+		$\Rightarrow a_1 \pm a_2 \pm \dots \pm a_{k - 1} + a_k - a_{k + 1} = 0$\\
+		Если $a_{n} \not= a_{n + 1}$, то по нашему предположению, давайте заменим нашу последовательность ($a_1, a_2, \dots, a_k$) на $a_1, a_2, \dots, |a_{k + 1} - a_k| \Rightarrow a_1 \pm a_2 \pm \dots \pm |a_{k + 1} - a_k| = 0$\\
+		Раскрывая модуль, получаем:\\
+		\[
+			a_1 \pm a_2 \pm \dots \pm a_{k + 1} \mp a_k = 0 \Rightarrow ч.т.д.	
+		\]
+	\end{enumerate}
+	
+\end{document}

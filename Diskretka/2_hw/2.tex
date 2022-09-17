@@ -1,0 +1,89 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{Алгебра логики: введение} \\ 
+	домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}\
+	\
+	\[
+		\neg(x = y) \wedge ((y < x) \rightarrow (2z > x)) \wedge ((x < y) \rightarrow (x > 2z)) 
+	\]
+	\[
+		\Rightarrow \
+		(x \not= y) \wedge ((y \geq x) \vee (2z > x)) \wedge ((x \geq y) \vee (x > 2z))
+	\]
+	\[
+		\Leftrightarrow \
+		\left\{ 
+		\begin{gathered} 
+			x \not= 16; \\
+			\left[
+			\begin{gathered}
+				y \leq 16; \\ 
+				x < 14     \\
+			\end{gathered} 
+			\right.
+			\\
+			\left[
+			\begin{gathered}
+				y \leq 16; \\ 
+				x < 14.    \\
+			\end{gathered} 
+			\right.
+		\end{gathered} 
+		\right. \
+		\Longrightarrow \
+		x = 15
+	\]
+	
+	%2
+	\textbf{№2}\
+	\
+	\[
+		\neg((x \wedge \neg y) \wedge z)
+	\]
+	
+	\begin{table}[H]
+	\centering	
+	\begin{tabular}{|c|c|c|}
+		\hline
+		x & y & z \\ \hline
+		0 & 0 & 0 \\ \hline
+		0 & 0 & 1 \\ \hline
+		0 & 1 & 0 \\ \hline
+		0 & 1 & 1 \\ \hline	
+		1 & 0 & 0 \\ \hline
+		1 & 0 & 1 \\ \hline
+		1 & 1 & 0 \\ \hline
+	    1 & 1 & 1 \\ \hline
+	\end{tabular}
+	\end{table}
+			
+\end{document}
