@@ -5,6 +5,7 @@
 	top=1cm,bottom=2cm}
 
 \usepackage{mathtext}
+\usepackage{amsfonts} 
 \usepackage{amsmath}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -46,15 +47,15 @@
 			x \not= 16; \\
 			\left[
 			\begin{gathered}
-				y \leq 16; \\ 
+				x \leq 16; \\ 
 				x < 14     \\
 			\end{gathered} 
 			\right.
 			\\
 			\left[
 			\begin{gathered}
-				y \leq 16; \\ 
-				x < 14.    \\
+				x \geq 16; \\ 
+				x > 14.    \\
 			\end{gathered} 
 			\right.
 		\end{gathered} 
@@ -66,24 +67,164 @@
 	%2
 	\textbf{№2}\
 	\
-	\[
-		\neg((x \wedge \neg y) \wedge z)
-	\]
-	
 	\begin{table}[H]
 	\centering	
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
-		x & y & z \\ \hline
-		0 & 0 & 0 \\ \hline
-		0 & 0 & 1 \\ \hline
-		0 & 1 & 0 \\ \hline
-		0 & 1 & 1 \\ \hline	
-		1 & 0 & 0 \\ \hline
-		1 & 0 & 1 \\ \hline
-		1 & 1 & 0 \\ \hline
-	    1 & 1 & 1 \\ \hline
+		x & y & z & $\neg y$ & $x \wedge \neg y$ & $\neg((x \wedge \neg y) \wedge z)$\\ \hline
+		0 & 0 & 0 & 1 & 0 & 1 \\ \hline
+		0 & 0 & 1 & 1 & 0 & 1 \\ \hline
+		0 & 1 & 0 & 0 & 0 & 1 \\ \hline
+		0 & 1 & 1 & 0 & 0 & 1 \\ \hline	
+		1 & 0 & 0 & 1 & 1 & 1 \\ \hline
+		1 & 0 & 1 & 1 & 1 & 0 \\ \hline
+		1 & 1 & 0 & 0 & 0 & 1 \\ \hline
+	    1 & 1 & 1 & 0 & 0 & 1 \\ \hline
 	\end{tabular}
 	\end{table}
+
+	%3
+	\textbf{№3}\
+	\
+	\[
+		1 \oplus x_1 \oplus x_2 = \neg x_1 \oplus x_2 = x_1 \oplus \neg x_2 = (x_1 \leftrightarrow x_2)
+	\]
+	\[
+		(x_1 \rightarrow x_2) \wedge (x_2 \rightarrow x_1) = (\overline{x_1} \vee x_2) \wedge (\overline{x_2} \vee x_1) = (x_1 \leftrightarrow x_2) \Rightarrow ч.т.д.
+	\]
+	
+	%4
+	\textbf{№4}\
+	\
+	\textbf{a)} $x \wedge (y \rightarrow z) \stackrel{?}{=} (x \wedge y) \rightarrow (x \wedge z)$
+	\[
+		x \wedge (y \rightarrow z) = x \wedge (\overline{y} \vee z) = (x \wedge \overline{y}) \vee (x \wedge z) 
+	\]
+	\[
+		(x \wedge y) \rightarrow (x \wedge z) = (\overline{x \wedge y}) \vee (x \wedge z) \Rightarrow неверно
+	\]
+	\
+	\textbf{b)} $x \oplus (y \leftrightarrow z) \stackrel{?}{=} (x \oplus y) \leftrightarrow (x \oplus z)$
+	\[
+		x \oplus (y \leftrightarrow z) = x \oplus \overline{y} \oplus z
+	\]
+	\[
+		(x \oplus y) \leftrightarrow (x \oplus z) = (\overline{x \oplus y}) \oplus (x \oplus z) = (\overline{y} \oplus x) \oplus (x \oplus z)	= \overline{y} \oplus z \Rightarrow неверно 
+	\]
+			
+	%5
+	\textbf{№5}\
+	\
+	\textbf{a)} $x \rightarrow y \stackrel{?}{=} y \rightarrow x$
+	\begin{table}[H]
+		\centering	
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			x & y & $x \rightarrow y$ & $y \rightarrow x$ \\ \hline
+ 			0 & 0 & 1 & 1 \\ \hline
+			0 & 1 & 1 & 0 \\ \hline
+			1 & 0 & 0 & 1 \\ \hline
+			1 & 1 & 1 & 1 \\ \hline	
+		\end{tabular}
+	\end{table}
+	\[
+		\Rightarrow неверно
+	\]
+	\
+	\textbf{b)} $(x \rightarrow y) \rightarrow z \stackrel{?}{=} x \rightarrow (y \rightarrow z)$
+	
+		\begin{table}[H]
+		\centering	
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			x & y & z & $x \rightarrow y$ & $(x \rightarrow y) \rightarrow z$ \\ \hline
+			0 & 0 & 0 & 1 & 0 \\ \hline
+			0 & 0 & 1 & 1 & 1 \\ \hline
+			0 & 1 & 0 & 1 & 0 \\ \hline
+			0 & 1 & 1 & 1 & 1 \\ \hline	
+			1 & 0 & 0 & 0 & 1 \\ \hline
+			1 & 0 & 1 & 0 & 1 \\ \hline
+			1 & 1 & 0 & 1 & 0 \\ \hline
+			1 & 1 & 1 & 1 & 1 \\ \hline
+		\end{tabular}
+		\
+		\begin{tabular}{|c|c|}
+			\hline
+			$y \rightarrow z$ & $x \rightarrow (y \rightarrow z)$ \\ \hline
+			1 & 1 \\ \hline
+			1 & 1 \\ \hline
+			0 & 1 \\ \hline
+			1 & 1 \\ \hline	
+			1 & 1 \\ \hline
+			1 & 1 \\ \hline
+			0 & 0 \\ \hline
+			1 & 1 \\ \hline
+		\end{tabular}
+	\end{table}
+	\[
+	\Rightarrow неверно
+	\]
+	
+	%6
+	\textbf{№6}\
+	\
+	\textbf{a)} $f(x_1,x_2, x_3) = 00111100$
+	\begin{table}[H]
+	\centering	
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		$x_1$ & $x_2$ & $x_3$ & $f(x_1,x_2, x_3)$ \\ \hline
+		0 & 0 & 0 & 0 \\ \hline
+		0 & 0 & 1 & 0 \\ \hline
+		0 & 1 & 0 & 1 \\ \hline
+		0 & 1 & 1 & 1 \\ \hline	
+		1 & 0 & 0 & 1 \\ \hline
+		1 & 0 & 1 & 1 \\ \hline
+		1 & 1 & 0 & 0 \\ \hline
+		1 & 1 & 1 & 0 \\ \hline
+	\end{tabular}
+	\
+	$\Rightarrow x_1, x_2 - \text{существенные}, x_3 - \text{фиктивные,}$
+	\\
+	т.к. $f(0, x_2, x_3) \not= f(1, x_2, x_3)$ и $f(x_1, 0, x_3) \not= f(x_1, 1, x_3)$
+	\end{table}
+	\
+	\textbf{b)} $g(x_1, x_2, x_3) = (x_1 \rightarrow (x_1 \vee x_2)) \rightarrow x_3$
+	\[
+		(x_1 \rightarrow (x_1 \vee x_2)) \rightarrow x_3 = (\overline{x_1} \vee x_1 \vee x_2) \rightarrow x_3 = 1 \rightarrow x_3 = 0 \vee x_3 = x_3
+	\]
+	$\Rightarrow$ $x_1, x_2 - \text{фиктивные}$, $x_3 - \text{существенная}$ 
+	
+	%7
+	\textbf{№7}\
+	\
+	Доказать: $f(x_1, \dots, x_n) = (x_1 \vee f(0, x_2, \dots, x_n)) \wedge (\overline{x_1} \vee f(1, x_2, \dots, x_n))$
+	\\
+	$x_1 = 0 \Rightarrow$
+	\[
+		f(0, x_2, \dots, x_n) = (0 \vee f(0, x_2, \dots, x_n)) \wedge \overbrace{(1 \vee f(1, x_2, \dots, x_n))}^{1} = (0 \vee f(0, x_2, \dots, x_n)) = f(0, x_2, \dots, x_n)
+	\]
+	$X_1 = 1 \Rightarrow$
+	\[
+		f(1, x_2, \dots, x_n) = \overbrace{(1 \vee f(0, x_2, \dots, x_n))}^{1} \wedge (0 \vee f(1, x_2, \dots, x_n)) = (0 \vee f(1, x_2, \dots, x_n)) = f(1, x_2, \dots, x_n)	
+	\]
+	$\Rightarrow$ ч.т.д.
+	
+	%8
+	\textbf{№8}\
+	\
+	Функция истинна $\forall i \in \mathbb{N}: x_{i}^{\alpha_i} = 1$. Если будет хотя бы один 0, то функция будет ложна (набор одних конъюнкций) $\Rightarrow$ т.к. $x_1, x_2, \dots, x_n$ - это некий фиксированный набор, то:
+	\[
+		\forall i \in \mathbb{N}, i \leq n: \alpha_i =
+		\left\{
+			\begin{gathered}
+			1, x_i = 1; \\
+			0, x_i = 0; \\
+			\end{gathered}
+		\right. 
+	\]
+	$\Rightarrow$ набор $\alpha_1, \alpha_2, \dots, \alpha_n$ фиксирован, ч.т.д. 
+	
+	
 			
 \end{document}
