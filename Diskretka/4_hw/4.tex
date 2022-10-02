@@ -1,0 +1,225 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{Математические определения, утверждения и доказательства} \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	%1
+	\textbf{№1}\
+	\
+    В 4 пункте имеется в виду, что x - одинаковый для всех скобок. При переходе от 4 пункта к 5 подразумевается, что x разный для левой и правой скобок $\Rightarrow$ доказательство неверное.  
+	
+	%2
+	\textbf{№2}\
+	\
+	Истинное выражение означает, что человек смотрит телевизор, ложное - не смотрит, тогда:
+	\[
+	\left\{
+	    \centering
+	    \begin{gathered} 
+        A \rightarrow B = 1; (1)\\
+        D \vee E = 1; (2) \\
+        B + C = 1; (3) \\
+        C \leftrightarrow D = 1; (4) \\
+        E \rightarrow (A \wedge D) = 1; (5) \\
+        \end{gathered}
+	\right.
+	\]
+	
+	Посмотрим, что будет при A = 0:
+	\[
+	\left\{
+	    \centering
+	    \begin{gathered} 
+        E = 0; (5)\\
+        D = 1; (2) \\
+        C = 1; (4) \\
+        B = 0; (3) \\
+        \end{gathered}
+	\right.
+	\Rightarrow (1) \text { - иситно}
+	\] 
+	
+	Посмотрим, что будет при A = 1:
+	\[
+	\left\{
+	    \centering
+	    \begin{gathered} 
+        B = 1; (1) \\
+        C = 0; (3)\\
+        D = 0; (4) \\
+        E = 1; (2) \\
+        \end{gathered}
+	\right.
+	\Rightarrow (5) \text { - ложно, значит $A \not= 1$}
+	\] 
+	
+	$\Rightarrow \text {C, D - смотрят телевизор, а A, B, E - нет}$
+	
+	%3
+	\textbf{№3}\
+	\
+	\[
+	((x^2 - 6x + 5) \vdots 2) \rightarrow (x \not\vdots 2)
+	\]
+	
+	Воспользуемся контрапозицией:
+	\[
+	    (x \vdots 2) \rightarrow ((x^2 - 6x + 5) \not\vdots 2) 
+	\]
+	\[
+	    x = 2k \Rightarrow (4k^2 - 12k + 5) \not\vdots 2 \Rightarrow \text {ч.т.д.}
+	\]
+	
+	%4
+	\textbf{№4}\
+	\
+    Доказательство от противного, пусть $i \in I, a \in R$, тогда: 
+    \[
+         a = \frac {m}{n},\text { где $m \in Z, n \in N$}.
+    \]
+    \[
+        \Rightarrow i\frac {m}{n} = \frac {p}{q},\text { где $p \in Z, q \in N$}.
+    \]
+    \[
+        \text {Тогда: }
+        i = \frac {pn}{qm} \Rightarrow i \text { - рациональное}, противоречие.     
+    \]
+    
+    %5
+	\textbf{№5}\
+	\
+    По условию: $A \neq \emptyset, B \neq \emptyset, C \neq \emptyset; A \neq B, B \neq C, C \neq A$
+    \[
+        \Rightarrow \exists x: x \in C \setminus A
+    \]
+    
+    Значит $x \in C, x \notin A, x \in B $ (т.к.$ C \setminus A \subseteq B$)
+    \[
+        \Rightarrow x \notin A \cap C \text {( т.к $x \notin A$)}
+    \]
+    
+    Значит если $B = A \cap C$, то $x \notin B$, но по выше доказанному $x \in B \Rightarrow$ получаем противоречие, значит $B \neq A \cap B$.
+	
+	%6
+	\textbf{№6}\
+	\
+	\textbf{a)} Доказать, что:
+	\[
+	1 \cdot (n - 1) + 2 \cdot (n - 2) + \dots + (n - 1) \cdot 1 = \frac{(n - 1)n(n + 1)} {6} 
+	\]
+	
+	\[
+	\sum_{k = 1}^{n - 1} k(n - k) = \frac{(n - 1)n(n + 1)} {6}
+	\]
+	
+	Докажем методом математической индукции:\
+	\begin{enumerate}
+		\item[1)] База: n = 1 $\Rightarrow$ $0 = 0$ - верно
+		\item[2)] Предположим, что верно для n = m: \\
+		\[
+			\sum_{k = 1}^{m - 1} k(m - k) = \frac{(m - 1)m(m + 1)} {6}
+		\]
+		Переход: m $\rightarrow$ m + 1 \\
+		$k\cdot(m + 1 - 1) - k\cdot(m - 1) = k$
+		\[
+			\sum_{k = 1}^{m} k(m + 1 - k) = \sum_{k = 1}^{m - 1} k(m - k) + \sum_{k = 1}^{m - 1} k + (m + 1 - 1) \cdot 1 = 
+		\]
+		\[
+			= \frac{(m - 1)m(m + 1)} {6} + \frac{m(m - 1)}{2} + m = \frac{(m - 1)m(m + 1)} {6} + \frac{3 \cdot m(m + 1)} {3 \cdot 2} = 
+		\]
+		\[
+			= \frac{(m+1)m(m + 2)} {6} \Rightarrow ч.т.д.
+		\]
+	\end{enumerate}
+
+	\textbf {б)}
+	\ 
+	Доказать, что:
+	\[
+    	\cos(x) + \cos(2x) + \ldots + \cos(nx) = \dfrac{\sin((n + \frac{1}{2})x)}{2\sin(\frac{x}{2})} - \dfrac{1}{2}
+	\]
+    $sin(\frac{x}{2}) \neq 0 \Rightarrow x \neq 2\pi k$, где $k \in \mathbb{Z}$
+    \[
+        \text {Пусть } z = \cos(x) + i\sin(x)
+    \]
+    \[
+        \Rightarrow \cos(x) + \cos(2x) + \ldots + \cos(nx) = Re(z^1 + z^2 + \ldots + z^n)
+    \]
+    Т.к. $x \neq 2\pi k$, где $k \in \mathbb{Z}$ , то $z \neq 1$
+    \\
+    \\
+    $\Rightarrow  z^1 + z^2 + \ldots + z^n$ - геометрическая прогрессия, в которой первый член не равен 1
+    
+    $z^1 + z^2 + \ldots + z^n = \dfrac{z^{n + 1} - 1}{z - 1} - 1$
+    
+    \[
+        Re\left(\dfrac{z^{n + 1} - 1}{z - 1}\right) = Re\left(\dfrac{(\cos((n+1)x) - 1) + i\sin((n+1)nx)}{(\cos(x) - 1) + i\sin(x)}\right) =
+    \]
+    \[
+        = Re\left(\dfrac{((\cos((n+1)x) - 1) + i\sin((n+1)x))((\cos(x) - 1) - i\sin(x))}{(\cos(x) - 1)^2 + \sin(x)^2}\right)
+    \]
+    
+    \[
+        = Re(\dfrac{(\cos((n+1)x) - 1)(\cos(x) - 1) + \sin((n+1)x)\sin(x)}{(\cos(x) - 1)^2 + (\sin(x))^2} +
+    \]
+    \[
+        + \dfrac{ -i\sin(x)(\cos((n+1)x) - 1) + i\sin(x)(\cos(x) - 1)}{(\cos(x) - 1)^2 + (\sin(x))^2}) =
+    \]
+    
+    \[
+        = \dfrac{\cos((n+1)x)\cos(x) - \cos((n+1)x) - \cos(x) + 1 + \sin((n+1)x)\sin(x)}{2(1 - \cos(x))}
+    \]
+    \[
+        = \dfrac{\cos(nx) - \cos((n+1)x) - \cos(x) + 1 }{2(1 - \cos(x))} = 
+    \]
+    \[
+        = \dfrac{2\sin((n + \frac{1}{2})x)\sin(\frac{x}{2}) + (1 - \cos(x))}{2(1 - \cos(x))} \text { т.к. } 1 - \cos(x) = 2\sin(\frac{x}{2})^2
+    \]
+    \[
+        \Rightarrow = \dfrac{\sin((n + \frac{1}{2})x)}{2\sin(\frac{x}{2})} + \dfrac{1}{2}
+    \] 
+    
+    $\Downarrow$
+    
+    $z^1 + z^2 + \ldots + z^n$ = R $- 1$ = $\dfrac{\sin((n + \frac{1}{2})x)}{2\sin(\frac{x}{2})} - \dfrac{1}{2}$
+    
+    $\Downarrow$
+    
+    $\cos(x) + \cos(2x) + \ldots + \cos(nx) = \dfrac{\sin((n + \frac{1}{2})x)}{2\sin(\frac{x}{2})} - \dfrac{1}{2} \Rightarrow \text{ ч.т.д.}$\\
+	
+	%7
+	\textbf{№7}\
+	\
+	Рассмотрим двух студентов, студента $S_{перв.}$, который вышел из комнаты первым в момент времени $t_{1}$, и студента $S_{посл.}$, который вошел последним в момент времени $t_{2}$. Логично, если $S_{посл.}$ пришел тогда, когда $S_{перв.}$, еще не вышел ($t_{1} > t_{2}$), то все студенты были в комнате. Предположим это не так, то есть $t_{1} < t_{2}$, тогда любой преподаватель успел поговорить и с $S_{перв.}$, и c $S_{посл.}$, значит между $t_{1}$ и $t_{2}$ в аудитории присутствовали все преподаватели $\Rightarrow ч.т.д.$
+    
+    %8
+	\textbf{№8}\
+	\
+    Ошибка заключается в переходе A(1) $\rightarrow$ A(2), т.к. если мы уберем 1 лошадь из 2, у нас останется лошадь одного цвета, а если другую - другого цвета, эти цвета не обязаны совпадать.
+    
+\end{document}
