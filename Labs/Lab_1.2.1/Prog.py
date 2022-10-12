@@ -9,3 +9,4 @@ arrDeltaX1 = [0.012,    0.0115,   0.011,    0.012]
 
 for i in range (0, 4):
     print ("u", i + 1, "=",  M_cil/mPools1[i]*((g/L1)**(0.5))*arrDeltaX1[i]*1000/3600)
+
