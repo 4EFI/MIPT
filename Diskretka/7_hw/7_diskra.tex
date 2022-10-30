@@ -1,0 +1,140 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{Двудольные графы, паросочетания и функции} \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}
+	\
+    \usepackage{\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{1}
+    \end{figure}}
+	\
+	\begin{enumerate}
+	    \item Dom(h) = \{1, 2, 3, 4, 5, 6, 8\}
+	    \item Range(h) = \{b, c, e, f\} 
+        \item h(\{0, 1, 2, 3, 4\}) = \{b, c, e\}
+        \item $h^{-1}$(\{a, b, c\}) = \{1, 2, 3, 5\}
+        \item h(\{0, 1, 2, 6, 7, 8\}) = \{b, c, e, f\}\\
+              $h^{-1}$(\{b, c, e, f\}) = \{1, 2, 3, 4, 5, 6, 8\}
+        \item $h^{-1}$(\{a, b, c, d, e\}) = \{1, 2, 3, 4, 5, 6\}\\
+               h(\{1, 2, 3, 4, 5, 6\}) = \{b, c, e\}
+	\end{enumerate}
+	
+	%2
+	\textbf{№2}
+	\
+	Рассмотрим все  $x \in X$:
+
+    Если x - составное число $\Rightarrow$ у него нет прообраза.
+    
+    Если x - простое число $\Rightarrow$ у него может быть не более $\lfloor \sqrt{x} \rfloor$ прообразов ($y > \sqrt{x}$, то $y^2 > x$ и x не подходит под условие, что $x > y^2$).
+    
+    Значит у всех $x \in X$ либо 0, либо конечное число прообразов, и т.к. X конечно, то суммарно будет тоже конечное кол-во прообразов $\Rightarrow$ $f^{-1}$(X) конечен.
+    
+    %3
+	\textbf{№3}
+	\
+	$f^{-1}(f(A)) \not \subseteq A$: $a_1 \in X, a_2 \in X, a_1 \in A, a_2 \not \in A, b_1 \in Y, f(a_1) = b_1, f(a_2) = b_1$ $\Rightarrow$ не все элементы прообраза $f^{-1}(f(A))$ (включающий в себя $a_1, a_2$) принадлежат A.
+	\\
+	
+	$f^{-1}(f(A)) \not \supseteq A$: $a_1 \in X, a_1 \in A$, но $a_1$ не определена на f, а значит не существует $f(a_1)$ и $a_1 \not \in f^{-1}(f(A))$.
+	\\
+	
+	$f^{-1}(f(A)) \not= A$: по доказанному выше $\Rightarrow$ никакой из знаков сравнения нельзя поставить вместо ?.
+	\\
+	
+	%4
+	\textbf{№4}
+	\
+	Пусть $A \cap B = C$ 
+    
+    $f(A \setminus B) = D$, $f(C) = E$, $f(B \setminus A) = F$
+    
+    Тогда $f(A) = D \cup E$
+    
+    $f(B) = F \cup E$
+    
+    $f(A) \setminus f(B) = (D \cup E) \setminus (F \cup E) = D \setminus F$
+    \\
+    
+    Наше утверждение превращается в $D$ ? $D \setminus F$ $\Rightarrow$ ? - $\supseteq$
+    \\
+    
+    %6
+	\textbf{№6}
+	\
+	Неверно:
+	
+	\usepackage{\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{3}
+    \end{figure}}
+    
+    %7
+	\textbf{№7}
+	\
+	Неверно:
+	
+	\usepackage{\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{2}
+    \end{figure}}
+    
+    X = \{1, 2\}
+
+    Y = \{a, b, c, d\}
+    
+    B = \{a, d\} $\subseteq Y$
+    
+    $f^{-1}(B) = X$, но B $\neq$ Y
+	\\
+	\\
+	
+    %8
+	\textbf{№8}
+	\
+	\usepackage{\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{2}
+    \end{figure}}
+    \
+	
+	X = \{1, 2\}
+
+    Y = \{a, b, c, d\}
+	
+	B = \{b, c\} $\subseteq Y$
+
+    B $\neq \emptyset$
+
+    $f^{-1}(B) = \emptyset$
+	
+\end{document}
