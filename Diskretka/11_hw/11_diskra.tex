@@ -1,0 +1,151 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{ Бинарные отношения и их графы. \\ Отношения эквивалентности } \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}
+	\\
+    $R \subseteq \{1, 2, 3\} \times \{1, 2, 3\}$
+
+    а)
+    \[
+        R = \{(1, 1), (2, 2), (3, 3), (1, 2), (1, 3), (3, 2)\}
+    \]
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{1}
+    \end{figure}
+    
+    $R$ - рефлексивно ($\forall a \in \{1, 2, 3\}$ выполнено $(a, a) \in R$)
+    
+    $R$ - не симметрично ($(1, 2) \in R$, а $(2, 1) \notin R$)
+    
+    $R$ - транзитивно
+    
+    $R$ - не отношение эквивалентности
+    
+    
+    б)
+    \[
+        R = \{(1, 1), (1, 2), (2, 1), (2, 2)\}
+    \]
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{2}
+    \end{figure}
+    
+    $R$ - не рефлексивно ($(3, 3) \notin R$)
+    
+    $R$ - симметрично (граф неориентированный)
+    
+    $R$ - транзитивно
+    
+    $R$ - не отношение эквивалентности
+    
+    %2
+	\textbf{№2}
+	\\
+    $c_1$, $c_2$ (child 1, 2) - дети m(mother), f(father)
+    
+    $c_{c_2}$ - ребёнок $c_2$, тогда $c_{c_2}$ - племянник для $c_1$
+    
+    Пусть бинарные отношения F - <<Be father>>, M - <<Be mother>>
+    
+    Значит, $fFc_1$, $fFc_2$ $\Rightarrow$ $c_1F^{-1}f \wedge fFc_2$ $\Rightarrow$ $(c_1, c_2) \in F^{-1} \circ F$
+    
+    $mMc_1$, $mMc_2$ $\Rightarrow$ $c_1M^{-1}m \wedge mMc_2$ $\Rightarrow$ $(c_1, c_2) \in M^{-1} \circ M$
+    
+    Значит, $(c_1, c_2) \in (F^{-1} \circ F) \cap (M^{-1} \circ M)$
+    
+    $c_2Fc_{c_2}$ или $c_1Mc_{c_2}$ $\Rightarrow$ $(c_2, c_{c_2}) \in F \cup M$
+    
+    $(c_1, c_2) \in (F^{-1} \circ F) \cap (M^{-1} \circ M)$ и $(c_2, c_{c_2}) \in F \cup M$
+    
+    $\Rightarrow (c_1, c_{c_2}) \in ((F^{-1} \circ F) \cap (M^{-1} \circ M)) \circ (F \cup M)$
+    
+    %3
+	\textbf{№3}
+	\
+	\begin{enumerate}
+	    \item $\overline{P_1}$ не транзитивно. Например: $P_1 : =$, тогда $\overline{P_1} : \neq$
+
+        $=$ транзитивно, а $\neq$ - нет 
+        
+        \item $P_1 \cap P_2$ транзитивно, так как если $(a, b)$ и $(b, c) \in P_1$ и $P_2$, то $(a, c) \in P_1$ и $(a, c) \in P_2 \Rightarrow (a, c) \in P_1 \cap P_2$
+        
+        \item $P_1 \cup P_2$ не транзитивно. Например: $P_1 = \{(a, b)\}, P_2 = \{(b, c)\}$
+    
+        Тогда $P_1, P_2$ транзитивны, а $P_1 \cup P_2 = \{(a, b), (b, c)\}$ - нет
+        
+        \item $P_1 \circ P_2$ не транзитивно. Например: $P_1 = \{(a, b), (c, d)\}, P_2 = \{(b, c), (d, e)\}$
+    
+        Тогда $P_1, P_2$ транзитивны, а $P_1 \circ P_2 = \{(b, c), (c, e)\}$ - нет
+	\end{enumerate}
+    
+    %4
+	\textbf{№4}
+	\\
+	Максимум пар в бинарном отношении: $6 \cdot 6 = 36$
+	
+	\begin{enumerate}
+	    \item [a)] Может. Например, уберем из бинарного отношения, где есть все пары(назовём его P), три пары - (1, 1), (2, 2) и (3, 3)
+    
+        Тогда если в паре $(a, b)$ $a \neq b$, то $(a, b) \in P$ и $(b, a) \in P$, так как мы эти пары не убирали. Если $a = b$, то у нас такой пары либо в P нет, либо она там лежит. 
+        
+        \item [б)] Не может, т.к. если мы из P удалим пару (a, b), то нам нужно удалить одну из пар (a, c) или (c, b), где $c \in \{1, 2, 3, 4, 5, 6\}$, значит нам нужно будет удалить 6 пар, но тогда их останется 30 < 33
+	\end{enumerate}
+	
+	%7
+	\textbf{№7}
+	\\
+	$f(g(f(a))) = a$ для $\forall a \in A$
+
+    Допустим $\exists a_0 \in A: f^{-1}(a_0) = \emptyset$
+    
+    $f(g(f(a_0))) = a_0$, но $f(g(a_0)) = b \in A$ $\Rightarrow$ $f(b) = a_0$ $\Rightarrow$ $b = f^{-1}(a_0)$ - противоречие, так как по предположению $f^{-1}(a_0) = \emptyset$
+    
+    $\Rightarrow f^{-1}(a) \neq \emptyset$ для $\forall a \in A$
+    
+    $\Rightarrow$ $f$ - сюрьекция
+    
+    Dom($f$) = Range($f$) = A $\Rightarrow$ $f$ - биекция.
+    
+    %8
+	\textbf{№8}
+	\\
+    Построим такое множество B и функцию f:
+    
+    Занумеруем все классы эквивалентности и i-тому элементу из B сопоставим i-тый по счёту класс эквивалентности
+    
+    Т.к. либо классы эквивалентности одинаковые (у них один номер), либо пересечение классов эквивалентности пусто, то обратная функция от i-того элемента вернёт i-тый класс эквивалентности (только его), значит мы построили такое множество B и функцию f (f - функция, т.к. либо классы эквивалентности одинаковые, либо их пересечение пусто, т.е. одному элементу из A не могут быть сопоставлены 2 элемента из B).
+	    
+\end{document}

@@ -1,0 +1,95 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{ Ориентированные графы \\ и отношения порядка  } \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}
+	\
+	Нет, контр пример:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{1}
+    \end{figure}
+    
+    %2
+	\textbf{№2}
+	\
+	1 КСС, удовлетворяющая условиям:
+	\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{2}
+    \end{figure}
+    
+    2 КСС:
+	\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{3}
+    \end{figure}
+    
+    Более чем две компоненты сильной связности в указанном графе быть не может, возьмем вершину а, из которой нельзя попасть в b. Получается из a есть рёбра во все вершины кроме b. Из этих вершин в b тоже не попасть. В итоге получаются две компоненты: \{b\}, а из остальных вершин можно попасть друг в друга.
+    
+    %3
+	\textbf{№3}
+	\
+	Докажем по индукции: \\
+	Для n = 2 - очевидно. \\
+	Предположим, что мы знаем путь с n вершинами: $v(1)->v(2)->\dots->v(n - 1)->v(n)$. Добавим (n + 1) вершину v. Если имеется ориентированное ребро $v->v(1)$ или $v(n)->v$, то все очевидно. Рассмотрим случай, когда это не так. Раскрасим вершины $v(1)->\dots->v(n)$ по следующему правилу. Если $v(i)->v$, то v(i) - белая, иначе, если $v->v(i)$, то v(i) черная. Первая вершина белая, последняя черная. Получается, что есть переход от белого цвета к черному. Найдем такое i, когда это происходит, т.е. v(i)->v - белая, а v->v(i) - черная $\Rightarrow$ $v(1)->v(2)->\dots->v(i)->v->v(i+1)->\dots->v(n)$, ч.т.д. 
+	
+	%4
+	\textbf{№4}
+	\
+	\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{4}
+    \end{figure}
+    
+    Линейный порядок: 
+	очки <p носки <p брюки <p туфли <p рубашка <p галстук <p ремень <p пиджак <p часы.
+	
+	%6
+	\textbf{№6}
+	\
+	По условию, aPa никогда не выполняется. Из двух условий aPb, bPa ($b \not= a$), выполнено ровно одно $\Rightarrow$ на всех рёбрах полного графа расставлены стрелки (от a к b при aPb).
+
+    Если отношение P транзитивно, то мы имеем линейный порядок. Если же оно не транзитивно, то условие нарушается для некоторой тройки элементов, где aPb, bPc, но при этом aPc неверно ($a \not= c$), тогда cPa.
+    
+    %7
+	\textbf{№7}
+	\
+	Будем рассматривать строгий порядок. Предположим, что a и b не сравнимы, тогда временно исключим b, а на оставшемся подмножестве порядок будет линейным: $a(1)<a(2)<\dots<a(i)<\dots<a(n-2)<a(n-1)$, в котором a(i) это а, при $1 \leq i \leq (n-1)$.
+
+    b сравним со всеми элементами, кроме a(i). При j < i: a(j) < b, в противном случае b < a(j) < a(i) = a, элементы оказываются сравнимыми. Аналогично, при j > i получается a(j) > b.
+    
+    $C^2_n = \dfrac{n(n-1)}{2}$ способами задаем неупорядоченную пару элементов, которые будут не сравнимы. Далее (n-2)! способами задаём линейный порядок на множестве из n-2 элементов (не считая a, b). И в конце n-1 способом вставляем пару a, b в какое-то место (до всех элементов, или после, или где-то между) $\Rightarrow$ получается
+    \[
+        \dfrac{n!(n-1)}{2}.
+    \]
+	    
+\end{document}
