@@ -1,0 +1,122 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 1.2.3 \\ \textbf{Определение моментов инерции твердых тел с помощью трифилярного подвеса} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} измерение момента инерции тел и сравнение результатов с расчётами по теоретическим формулам; проверка аддитивности моментов инерции и справедливости формулы Гюйгенса-Штейнера.\\
+    
+    \textbf{В работе используются:} трифилярный подвес, секундомер, счетчик числа колебаний, набор тел, момент инерции которых надлежит измерить (диск, стержень, полный цилиндр и другие).
+\end{abstract}
+
+\section {Теоретическая справка} 
+    Момент инерции твердого тела рассчитывается по формуле:
+    \begin{equation}
+        I = \int r^2dm
+    \end{equation}
+    
+    Далеко не всегда удается вычислить момент инерции тела аналитически ввиду неоднородности или сложной формы, в таких случаях удобно сделать это экспериментально, например, с помощью трифилярного подвеса.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{1.png}
+    \end{figure}
+    
+    Устройство состоит из неподвижной платформы, вращающейся платформы, подвешенной на трех симметричных нитях.
+    Если пренебречь потерями энергии, то уравнение сохранения энергии при колебаниях:
+    \begin{equation}
+        \label{энергия}
+        \frac{I\dot{\varphi}^2}{2}+mg(z_0-z)=E,
+    \end{equation}
+    
+    где $I$ - момент инерции платформы и тела, $z_0$ - координата по вертикали центра нижней платформы при равновесии, $z$ - координата аналогичной точки при повороте на угол $\phi$.
+    Из уравнения \ref{энергия} видно, что колебательное движение системы происходит благодаря силе тяжести. 
+    
+    Рассмотрим точку C на верхней платформе с координатами $(r, 0, 0)$ и точку $C''$, противоположную С при повороте на $\phi$, с координатами $(R\cos(\varphi), R\sin(\varphi)), z)$
+    
+    Расстояние между ними равно длине нити:
+    \begin{equation}
+        (R\cos(\phi)-r)^2+R^2\sin^2\phi+z^2=L^2
+    \end{equation}
+    
+    Для малых углов:
+    \begin{equation}
+        z^2=L^2-R^2-r^2+2Rr\cos\varphi=z_0^2-2Rr(1-\cos\varphi)\approx z_0^2-Rr\varphi^2
+    \end{equation}
+    \begin{equation}
+        z \approx \sqrt{z_0^2-Rr\varphi^2}\approx z_0     \sqrt{1-\frac{Rr\varphi^2}{z_0^2}} \approx z_0-           \frac{Rr\varphi^2}{2z_0}
+    \end{equation}
+    
+    Подставив это в уравнение \ref{энергия}:
+    \begin{equation}
+        \frac{1}{2}I\dot{\varphi}+mg\frac{Rr}{2z_0}\varphi^2=E
+    \end{equation}
+    
+    Откуда:
+    \begin{equation}
+        \varphi=\varphi_0\sin(\sqrt{\frac{mgRr}{Iz_0}}t+\Theta)
+    \end{equation}
+    Константны определяются начальными условиями, а период колебаний системы:
+    \begin{equation}
+        T=2\pi\sqrt{\frac{Iz_0}{mgRr}}
+    \end{equation}
+    
+    Откуда не трудно определить выражение для момента инерции:
+    \begin{equation}
+        I=\frac{mgRrT^2}{2\pi^2z_0}
+    \end{equation}
+    
+    Для краткости:
+    \begin{equation}
+        I=kmT^2
+    \end{equation}
+    
+    Для постоянной k для данной установки:
+    \begin{equation}
+        k=I=\frac{gRr}{2\pi^2z_0}
+    \end{equation}
+
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} трифилярный подвес, секундомер, счетчик числа колебаний, набор тел, момент инерции которых надлежит измерить (диск, стержень, полный цилиндр и другие).
+
+
+\section {Методика измерений}
+    
+    
+\section {Результаты измерений и обработка данных} 
+    
+    
+
+\section {Обсуждение результатов}
+    
+    
+    
+\section {Заключение}
+    
+    
+\end{document}
