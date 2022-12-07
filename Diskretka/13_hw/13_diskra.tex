@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{ Булевы функции  } \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}
+	\\
+	Таблица истинности:
+	\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{1}
+    \end{figure}
+    
+    ДНФ: $f(x_1, x_2, x_3) = \overline{x_1} x_2 \overline{x_3} \vee \overline{x_1} x_2 x_3 \vee x_1 \overline{x_2} \overline{x_3} \vee x_1 \overline{x_2} x_3$
+    
+    КНФ: $ f(x_1, x_2, x_3) = (x_1 \vee x_2 \vee x_3) \wedge (x_1 \vee x_2 \vee \overline{x_3}) \wedge (\overline{x_1} \vee \overline{x_2} \vee x_3) \wedge (\overline{x_1} \vee \overline{x_2} \vee \overline{x_3})$
+    
+    %2
+	\textbf{№2}
+	\\
+	$$ \neg( x \rightarrow x ) = \neg( \neg x \vee x ) = 0 \Rightarrow \text{ вычисляется.} $$
+	
+	%3
+	\textbf{№3}
+	\\
+	\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{2}
+    \end{figure}
+    
+    По таблице истинности можем видеть, что:
+    
+    $$ MAJ(x, y, z) = xy \oplus xz \oplus yz $$
+	    
+\end{document}
