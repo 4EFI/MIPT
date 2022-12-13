@@ -1,0 +1,83 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+	total={170mm,257mm},left=2cm,right=2cm,
+	top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsfonts} 
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{\textbf{ Производящие функции  } \\ домашнее задание}
+
+\begin{document}
+	\maketitle
+	
+	%1
+	\textbf{№1}
+	\\
+	\begin{enumerate}
+	    \item [а)] 
+	    Разложим в ряд Тейлора следующую функцию:
+	    \[
+	        (1 - x)^{-1} = 1 + x + x^2 + x^3 \dots 
+	    \]
+	    \[
+	        \Rightarrow ((1 - x)^{-1})' \cdot x = x + 2 \cdot x^2 + 3 \cdot x^3 \dots = \dfrac{x}{(1 - x)^2}
+	    \]
+	    
+	    \item [б)]
+	    Аналогично в ряд Тейлора:
+	    \[
+	        e^x = 1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \dfrac{x^3}{3!}
+	    \]
+	    
+	    Это и есть, что нам нужно.
+	\end{enumerate}
+	
+    %4
+	\textbf{№4}
+	\\
+	Доказать, что:
+	\[
+	    \sum\limits_{k = 2}^{n} k(k-1)C_n^k = n(n-1)2^{n-2}
+	\]
+    
+    Мы знаем, что: 
+    \[
+        (1 + x)^n = \sum\limits_{k = 0}^{n} C_n^k \cdot x^k = f(x)
+    \]
+
+    \[
+        \Rightarrow f''(x) = n(n - 1)(1 + x)^{n - 2}
+    \]
+    
+    С другой стороны:
+    
+    \[
+        f''(x) = \sum\limits_{k = 2}^{n} k(k-1)C_n^k \cdot x^{k - 2}
+    \]
+
+    Получаем то, что и требовалось доказать:
+    
+    \[
+        \sum\limits_{k = 2}^{n} k(k-1)C_n^k = f''(1) = n(n-1)2^{n-2}
+    \]
+	    
+\end{document}
