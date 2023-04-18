@@ -1,0 +1,95 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 2.1.4 \\ \textbf{Определение теплоемкости твердых тел} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} измерение количества подведённого тепла и вызванного им нагрева твёрдого тела; 2) определение теплоёмкости по экстраполяции отношения $\triangle Q/\triangle T$ к нулевым потерям тепла. \\
+    
+    \textbf{В работе используются:} калориметр с нагревателем и термометром сопротивления; амперметр; вольтметр; мост постоянного тока; источник питания 36 В.
+\end{abstract}
+
+\section {Теоретическая справка} 
+
+    Теплоемкость определяется по формуле:
+    \begin{equation}
+        C = \dfrac{\triangle Q}{\triangle T}
+    \end{equation}
+
+    Температура исследуемого тела надёжно измеряется термометром, а определение количества тепла, поглощённого телом, обычно вызывает затруднение. Не вся энергия $P \triangle t$, выделенная нагревателем, идёт на нагревание исследуемого тела и калориметра, часть её уходит благодаря теплопроводности его стенок. Оставшееся в калориметре количество тепла:
+    \begin{equation}
+        \triangle Q = P \triangle t - \lambda ( T  - T_k ) \triangle t
+    \end{equation}
+
+    Тогда из (1) и (2) получаем:
+    \begin{equation}
+        C = \dfrac{P - \lambda ( T  - T_k )}{ \triangle T / \triangle t }
+    \end{equation}
+
+    В представленной работе зависимость скорости нагревания тела $\triangle T / \triangle t$ от температуры измеряется в широком интервале изменения температур. По полученным данным строится график:
+    \[
+        \dfrac{\triangle T}{\triangle t} = f(T)
+    \]
+
+    Температура измеряется термометром сопротивления, представляющим собой медную проволоку, намотанную на теплопроводящий каркас внутренней стенки калориметра. Известно, что сопротивление проводника изменяется с температурой по закону:
+    \begin{equation}
+        R = R_0 (1 + \alpha \triangle T)
+    \end{equation}
+
+    Выразим сопротивление $R_0$ через измеренное значение сопротивления термометра при комнатной температуре $R_k$:
+    \begin{equation}
+        R_0 = \dfrac{R_k}{1 + \alpha \triangle T_k}
+    \end{equation}
+
+    Окончательно получаем:
+    \begin{equation}
+        C = \dfrac{P R \alpha}{(\frac{dR}{dt})_{T_k} ( 1 + \triangle T_k ) }
+    \end{equation}
+
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} калориметр с нагревателем и термометром сопротивления; амперметр; вольтметр; мост постоянного тока; источник питания 36 В.
+
+\section {Методика измерений}
+    Нам представлены 3 металла: латунь, железо и алюминий.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{4.png}
+    \end{figure}
+
+    Поочередно помещая их в калориметр, схема устройства которого представлена выше, проходимся по пунктам и нужные нам данные вносим в таблицу для дальнейшей обработки.
+    
+\section {Результаты измерений и обработка данных} 
+    
+    
+\section {Заключение} 
+    В данной работе мы научились точно измерять теплоемкости различных металлов, а также оценивать тепловые потери в калориметре в ходе выполнения лабораторной. 
+    
+    
+\end{document}
