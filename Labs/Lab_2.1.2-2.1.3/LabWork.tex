@@ -1,0 +1,64 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад и Каграманян Артемий, Б01-208}
+\date{\today}   
+\title{Отчет о выполнении лабораторной работы 2.1.2/2.1.3 \\ Определение $С_P/С_V$}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} определение отношения $С_P/С_V$, для воздуха или углекислого газа по измерению давления в стеклянном сосуде. Измерения производятся сначала после адиабатического расширения газа, а затем после нагревания сосуда и газа до комнатной температуры. \\
+    
+    \textbf{В работе используются:} стеклянный сосуд; U-образный жидкостный манометр; резиновая груша; газгольдер с углекислым газом.
+\end{abstract}
+
+\section {Теоретическая справка} 
+
+\subsection{ Метод адиабатического
+расширения газа }
+
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} стеклянный сосуд; U-образный жидкостный манометр; резиновая груша; газгольдер с углекислым газом.
+
+\section {Методика измерений} 
+
+Ознакомимся с установкой, представленной на изображении ниже.  
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{1.png}
+    \end{figure}
+
+Можем видеть большой сосуд, в котором с помощью резиновой груши создается избыточное давление. Значение избыточного давления показывается 
+    
+    
+\section {Результаты измерений и обработка данных} 
+
+    
+\section {Заключение}
+    В данной работе мы научились довольно точно измерять показатель адиабаты воздуха, а также в ходе выполнения лабораторной мы узнали, что следует создавать большое избыточное давление, для уменьшения расхождения с теоретическими значениями показателя адиабаты данной среды. 
+    
+\end{document}
