@@ -1,0 +1,218 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Вопрос по выбору \\ \textbf{Термодинамическая теория флуктуаций} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} Рассмотреть общий подход к вычислению флуктуаций термодинамических параметров при фиксированном числе частиц в подсистеме. \\
+\end{abstract}
+
+\section {Определения}   
+
+    Перед тем как перейти к главной части вопроса, давайте дадим определение флуктуации. \textbf{Флуктуацией} называются случайные отклонения физических величин от их средних значений. 
+
+    \\
+
+    Введем некоторую случайную величину $f$, где $\overline{f}$ -- ее среднее значение. Тогда \textit{флуктуация} есть $\triangle f = f - \overline{f}$ (По определению $\overline{\triangle f} = 0$). $\sigma = \sqrt{\overline{(\triangle f)^2}}$ -- называется \textit{среднеквадратичной флуктуацией}. Теперь можно ввести \textit{относительную среднеквадратичную флуктуацию} $\delta_f$:
+    \[
+        \delta_f = \dfrac{\sqrt{\overline{(\triangle f)^2}}}{\overline{f}}
+    \]
+
+\section{Распределение Гаусса}
+
+    Рассмотрим энтропию $S(f)$ системы находящемся в состоянии, близком к равновесию. Введем $x = f - \overline{f}$, тогда вероятность величине x иметь значение в интервале (x; x + dx) согласно Больцману можно записать следующим образом:
+    \[
+        w(x) dx = const \cdot \exp(\frac{S(x)}{k})dx
+    \]
+
+    В состоянии равновесия $f = \overline{f}$, энтропия максимальна и равна $S_{max}$.
+
+    Разложим S(x) в Тейлора:
+    \[
+        S(x) = S_{max} - \frac{\lambda}{2} x^2 + \dots
+    \]
+
+    Мы воспользовались тем, что:
+    \[
+        \frac{\partial S}{\partial f}\bigg|_{f = \overline{f}} = 0 \;\;\;\;\;\;\; \frac{\partial^2 S}{\partial f^2}\bigg|_{f = \overline{f}} = -\lambda < 0
+    \]
+
+    Тогда, подставив, получаем следующее:
+    \[
+        w(x) dx = A e^{-\frac{\lambda}{2}x^2} dx 
+    \]
+
+    Проведем нормировку и найдем константу A:
+    \[
+        \int_{-\infty}^{\infty} A e^{-\frac{\lambda}{2}x^2} dx = 1 \Rightarrow A = \sqrt{\frac{\lambda}{2\pi}}
+    \]
+
+    Теперь найдем  $\lambda$, вычислив среднеквадратичную флуктуацию параметра $f$:
+    \[
+        \overline{x^2} = \sqrt{\frac{\lambda}{2\pi}} \int_{-\infty}^{\infty} x e^{-\frac{\lambda}{2}x^2} dx = \frac{1}{\lambda} = \sigma^2
+    \]
+
+    Окончательно подтверждаем распределение Гаусса:
+    \[
+        w(x) dx = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\bigg( -\frac{(x - \overline{x})^2}{2 \sigma^2}dx \bigg)  
+    \]
+
+\section {Термодинамическая теория флуктуаций}
+
+    Пусть тело находится в большой замкнутой системе, которую можно рассматривать как термостат. В состоянии равновесия температуры и давления у тела и термостата совпадают $T = T_0; P = P_0$:
+
+     \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{1.png}
+    \end{figure}
+
+     Обозначим энтропию, объем и внутреннюю энергию тела как $S, V, U$ а те же величины для термостата — как $S_0, V_0, U_0$.
+
+     Стоит отметить, что изменение объема и энергии связаны следующим образом:
+     \[ 
+        \triangle V_0 = -\triangle V \;\;\;\;\;\; \triangle U_0 = -\triangle U
+     \]  
+
+     При малом отклонении от равновесия изменение энтропии термостата равно:
+     \[
+        \triangle S_0 = \frac{\triangle U_0 + P_0 \triangle V_0}{T_0}
+     \]
+
+     Изменение полной энтропии системы $\triangle S_{полн} = \triangle S_0 +  \triangle S$, тогда:
+    \begin{equation}
+        \triangle S_{полн} = \frac{\triangle U_0 + P_0 \triangle V_0 + T_0\triangle S}{T_0} = \frac{- \triangle U - P_0 \triangle V + T_0\triangle S}{T_0} = -\frac{\triangle Z}{T_0}
+    \end{equation}
+
+    где $\triangle Z = \triangle U + P_0 \triangle V - T_0\triangle S$, данная величина есть полезная работа, производимая подсистемой над сторонними телами в некотором процессе $1 \rightarrow 2$. Так как:
+    \[
+        A_{1 \rightarrow 2}^{системой} = - A_{1 \rightarrow 2}^{над-системой} = A_{2 \rightarrow 1}^{над-системой}
+    \]
+
+    то эта величина -- есть \textit{минимальная работа} производимая над подсистемой, в ходе обратного процесса $2 \rightarrow 1$: 
+    \[
+        A_{min} = \triangle Z = Z_2 - Z_1
+    \]
+
+    Тогда мы можем написать вероятность флуктуации в виде:
+    \begin{equation}
+        W \sim \exp\big( \frac{\triangle S_{полн}}{k} \big) = \exp\big( -\frac{ A_{min} }{k T_0} \big)
+    \end{equation}
+
+    Преобразуем теперь формулу (1), считая отклонения от состояния термодинамического равновесия малыми. Разложим $\triangle U$ в ряд по степеням $\triangle S$ и $\triangle V$:
+    \begin{equation}
+        \triangle U = (\frac{\partial U}{\partial S})_V\triangle S + (\frac{\partial U}{\partial V})_S\triangle V + \frac{1}{2}\big( ( \frac{\partial^2 U}{\partial S^2})_V(\triangle S)^2 +
+    \end{equation}
+    \[
+        + 2(\frac{\partial^2 U}{\partial S \partial V})(\triangle S)(\triangle V) + (\frac{\partial^2 U}{\partial V^2})_S(\triangle V)^2 \big) + ...
+    \]
+
+    Теперь нам нужно учесть следующие термодинамические тождества:
+    \[
+        (\frac{\partial U}{\partial S})_V = T \;\;\;\;\;\;
+        \;\;\;\;\;\;\;\; (\frac{\partial U}{\partial V})_S = -P
+    \]
+
+    А также стоит расписать вторую частную производную в разложении:
+    \[
+        2(\frac{\partial^2 U}{\partial S \partial V}) = \frac{\partial}{\partial V}( \frac{\partial U}{\partial S}) + \frac{\partial}{\partial S}( \frac{\partial U}{\partial V} ) = ( \frac{\partial T}{\partial V}) - ( \frac{\partial P}{\partial S} )
+    \]
+
+    Подставим это в (3) выражение:
+    \begin{equation}
+        \triangle U = T \triangle S - P\triangle V + \frac{1}{2}\big( ( \frac{\partial T}{\partial S})_V(\triangle S)^2 +
+    \end{equation}
+    \[
+        + \big(( \frac{\partial T}{\partial V}) - ( \frac{\partial P}{\partial S} )\big)(\triangle S)(\triangle V) - (\frac{\partial P}{\partial V})_S(\triangle V)^2 \big) + ...
+    \]
+
+    Теперь подставим полученное изменение внутренней энергии в (1) выражение:
+    \[
+        \triangle S_{полн} = -\frac{1}{2T}\big( ( \frac{\partial T}{\partial S})_V(\triangle S)^2 + ( \frac{\partial T}{\partial V}))(\triangle V)(\triangle S) - ( \frac{\partial P}{\partial S} )(\triangle S)(\triangle V) - (\frac{\partial P}{\partial V})_S(\triangle V)^2 \big) = 
+    \]
+    \[
+        = -\frac{1}{2T}\big[\big( ( \frac{\partial T}{\partial S})_V(\triangle S) + ( \frac{\partial T}{\partial V})(\triangle V)\big)\triangle S - \big( ( \frac{\partial P}{\partial S} )(\triangle S) + (\frac{\partial P}{\partial V})_S(\triangle V)\big)\triangle V \big]
+    \]
+
+    Тогда в скобках мы получаем полный дифференциал и окончательно выражение для полной энтропии:
+    \[
+        \triangle S_{полн} = -\frac{\triangle T \triangle S - \triangle P \triangle V}{2T}
+    \]
+
+    Таким образом, для вероятности флуктуации находим формулу:
+    \begin{equation}
+        W \sim \exp\big( \frac{\triangle S_{полн}}{k} \big) = \exp\big(\frac{ \triangle P \triangle V - \triangle T \triangle S }{2kT}\big)
+    \end{equation}
+    
+\section {Примеры}
+
+\subsection{ Флуктуация положения пружинных весов }
+
+    При выводе весов из положения равновесия должна совершаться работа по деформированию пружины:
+    \[
+        A_{min} = u(x) = \frac{\kappa x^2}{2}
+    \]
+    тогда по формуле (2) получаем следующую вероятность весам попасть в состояние, характеризуемое отклонением в интервале (x; x + dx):
+    \[
+        w(x)dx = A \exp\bigg( \frac{\kappa x^2}{2kT_0} \bigg) dx
+    \]
+
+    Тогда отсюда сразу следует:
+    \[
+        \overline{x^2} = \frac{k T_0}{\kappa}
+    \]
+
+\subsection{ Флуктуация температуры в заданном объеме }
+
+Так как $\triangle V = 0$, то:
+\[
+    \triangle S = (\frac{\partial S}{\partial T})_V \triangle T + (\frac{\partial S}{\partial V})_T \triangle V = (\frac{\partial S}{\partial T})_V \triangle T = \frac{C_V}{T}\triangle T
+\]
+
+$C_V$ - теплоемкость рассматриваемой подсистемы. По формуле (5) получаем следующую вероятность флуктуации:
+\[
+    W \sim \exp( -\frac{C_V}{2kT^2}(\triangle T)^2 )
+\]
+
+Отсюда следует, что:
+\[
+    \overline{(\triangle T)^2_V} = \frac{kT^2}{C_V}
+\]
+
+\subsection{ Флуктуация энтропии в заданном объеме }
+
+Так как $\triangle V = 0$, то аналогично:
+\[
+    \triangle S = \frac{C_V}{T}\triangle T \;\;\; \Rightarrow \;\;\; \triangle T = \frac{T}{C_V}\triangle S
+\]
+
+По формуле (5) получаем следующую вероятность флуктуации:
+\[
+    W \sim \exp( -\frac{(\triangle S)^2}{2kC_V} ) \;\;\; \Rightarrow \;\;\; \overline{(\triangle S)^2_V} = kC_V
+\]
+    
+\end{document}
