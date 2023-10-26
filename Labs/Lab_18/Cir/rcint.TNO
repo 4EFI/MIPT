@@ -1,5 +1,5 @@
 ********************************************************************************
-***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                       Micro-Cap 12.2.0.5 (32 bit)                        ***
 ***                                                                          ***
 ***                                                                          ***
 ***                       Transient Analysis of rcint                        ***
@@ -28,18 +28,18 @@ Stepping is Nested
 
 Step What  RL value
 From       10k
-To         10Meg
-Step Value 10Meg
+To         10000k
+Step Value 10000k
 Method     Linear
 
 
 
 *****************************************************
 ***                Temperature=27                 ***
-***                    RL=10K                     ***
+***                    RL=10k                     ***
 *****************************************************
 
-Temperature=27 RL=10K
+Temperature=27 RL=10k
 
 Model parameters for devices of type Sine Source
 ================================================
@@ -136,10 +136,10 @@ ISource                0.000
 
 *****************************************************
 ***                Temperature=27                 ***
-***                    RL=10M                     ***
+***                   RL=10000k                   ***
 *****************************************************
 
-Temperature=27 RL=10M
+Temperature=27 RL=10000k
 
 Model parameters for devices of type Sine Source
 ================================================
