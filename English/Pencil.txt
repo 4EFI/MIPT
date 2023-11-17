@@ -1,0 +1,38 @@
+- Introduction
+
+Welcome to our presentation about the Pencil of the Future! Let us introduce ourselves I ... I ... I ... . This innovative writing tool is packed with advanced features that will revolutionize the way you take notes, write, and communicate.
+
+And you may ask why we chose this particular project. Because over centuries and even millennia the pencil has not changed in any way, but people still use it. We want to present to you something that no one has done before. Over the course of 3 years we have been developing this pencil model. Today we’ll talk about what we managed to do during this time.
+
+
+
+- Built-in Neural Network
+
+An artificial intelligence embedded in a pencil can perform various tasks:
+
+1. Handwriting Recognition: The AI can analyze handwritten text and convert it into digital text, making it easier to store and edit.
+
+2. Writing Assistance: The AI can provide suggestions and corrections for spelling, grammar, and sentence structure, improving the quality of the written content.
+
+3. Sketch Recognition: The AI can recognize hand-drawn sketches and convert them into digital images or provide suggestions for refining the drawing.
+
+4. Educational Support/Personalized Learning: The AI can offer interactive learning experiences by providing explanations, quizzes, or interactive exercises related to the written content. The AI can analyze a user's writing patterns and provide personalized suggestions for improving writing skills or suggest educational resources tailored to the user's needs.
+
+5. Creative Inspiration: The AI can provide creative prompts, ideas, or suggestions for artistic or writing endeavors, inspiring users with new concepts.
+
+
+
+- Handwriting Memory Function
+
+The Pencil of the Future's handwriting memory function allows users to save and recall their handwritten notes and drawings. Our pen is able to memorize and analyze a person's handwriting, this is a very useful function that we did not have before. Firstly, it will remove the shortcomings of your handwriting and leave only the features. Secondly, such a pen will be able to recognize the owner's handwriting and use it as an authentication method. She can make an invaluable contribution when studying various historical documents. It will allow researchers to analyze and compare different handwriting and draw conclusions about the origin and authorship of such documents.
+
+
+
+- Translator
+
+Another very important function of our gadget is the ability to write text in any language of the world! It will be convenient for people learning foreign languages or for communicating with people from other countries. For example, at a business meeting, there is often a need for small notes, this pen allows you to facilitate communication and save time. It will help students studying foreign languages to easily translate the text, which contributes to more effective learning.
+
+
+- The End
+
+In the end, I would like to note that our project is entering mass production and you can already pre-order it. The price of 500 dollars is very attractive for this product and you can contact us for purchase using this QR-code. We are waiting for your applications and first reviews!
